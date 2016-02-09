@@ -5,6 +5,7 @@ from lib.EventHandler import *
 from lib.Blocks.IBlock import IBlock
 from lib.Blocks.Block import Block
 from lib.Map import Map
+from lib.CollisionHandler import *
 
 
 class Main(object):
@@ -20,14 +21,17 @@ class Main(object):
             self.update()
             self.draw()
             self.clock.tick(10)
+            if CollisionHandler.is_colliding(block=self.block, map=self.map):
+                self.block.spawn_block()
 
     def update(self):
-        Eventhandler.handle_events()
-        self.block.update()
+        Eventhandler.handle_events(block=self.block)
+        if self.block.y < 31:
+            self.block.update()
 
     def draw(self):
         self.window.fill((0, 0, 255))
-        self.block.spawn_block()
+        self.map.draw(window=self.window)
 
         pygame.display.flip()
 

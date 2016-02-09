@@ -3,6 +3,7 @@ from pygame.locals import *
 import os
 import random
 from lib.Blocks.Block import Block
+from lib.EventHandler import *
 
 
 class IBlock(Block):
@@ -15,9 +16,46 @@ class IBlock(Block):
                       [False, False, False, False]
                     ]
         self.map = map
+        self.x = 0
+        self.y = 0
+
+    def to_map(self, map):
+        for i in range(0, 3):
+            map.map[self.x+i][self.y]=True
 
     def spawn_block(self):
-        for x in range(0, 20):
-            for y in range(0, 32):
-                if self.form[x][y]:
-                    self.map,map[x][y]=True
+        self.to_map(map=self.map)
+        self.x = 0
+        self.y = 0
+
+    def move_right(self):
+        self.x += 1
+        self.map.map[self.x-1][self.y] = False
+
+    def update(self):
+        if False:
+            self.draw()
+        else:
+            self.y += 1
+            self.draw()
+
+    def draw(self):
+        for y in range(0, 31):
+            for x in range(0, 19):
+                if x < 4 and y < 4:
+                    if self.form[y][x]:
+                        self.map.map[x+self.x][y+self.y] = True
+                        self.map.map[x+self.x][y+self.y-1] = False
+
+
+
+
+
+
+
+
+
+
+
+
+

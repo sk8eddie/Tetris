@@ -7,13 +7,8 @@ class CollisionHandler(object):
     pass
 
     @classmethod
-    def handle_block_collision(cls):
-        pass
+    def is_colliding(cls, block, map):
+        for i in range(0, 3):
+            return block.y <= 31 or map.map[block.x][block.y+1]
 
-    @classmethod
-    def handle_edge_collisions(cls):
-        pass
 
-    @classmethod
-    def handle_collisions(cls):
-        pass
