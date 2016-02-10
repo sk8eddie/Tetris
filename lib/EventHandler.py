@@ -14,7 +14,7 @@ class Eventhandler(object):
                 sys.exit()
             elif event.type == KEYDOWN:
                 if event.key == K_LEFT:
-                    pass
+                    block.move_left()
                 elif event.key == K_RIGHT:
                     block.move_right()
                 elif event.key == K_UP:

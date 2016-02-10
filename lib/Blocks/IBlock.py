@@ -32,6 +32,10 @@ class IBlock(Block):
         self.x += 1
         self.map.map[self.x-1][self.y] = False
 
+    def move_left(self):
+        self.x -= 1
+        self.map.map[self.x+1][self.y] = False
+
     def update(self):
         if False:
             self.draw()
