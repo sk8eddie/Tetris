@@ -11,7 +11,7 @@ class Map(object):
         self.image = pygame.image.load(os.path.join('lib\media', 'Block.png'))
         for i in range(0, 20, 1):
             cell_dump = []
-            for e in range(0,32, 1):
+            for e in range(0, 32, 1):
                 cell_dump.append(False)
             self.map.append(cell_dump)
 

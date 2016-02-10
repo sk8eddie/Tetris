@@ -34,7 +34,7 @@ class IBlock(Block):
 
     def move_left(self):
         self.x -= 1
-        self.map.map[self.x+1][self.y] = False
+        self.map.map[self.x+4][self.y] = False
 
     def update(self):
         if False:
