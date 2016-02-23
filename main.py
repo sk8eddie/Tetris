@@ -20,7 +20,7 @@ class Main(object):
         while True:
             self.update()
             self.draw()
-            self.clock.tick(10)
+            self.clock.tick(4)
             if CollisionHandler.is_colliding(block=self.block, map=self.map):
                 self.block.spawn_block()
 

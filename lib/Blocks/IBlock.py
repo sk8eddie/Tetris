@@ -30,11 +30,19 @@ class IBlock(Block):
 
     def move_right(self):
         self.x += 1
-        self.map.map[self.x-1][self.y] = False
+        if self.rotation == 1 or self.rotation == 3:
+            self.map.map[self.x-1][self.y] = False
+        elif self.rotation == 2 or self.rotation == 4:
+            for y in range(0, 4):
+                self.map.map[self.x-1][self.y-y] = False
 
     def move_left(self):
         self.x -= 1
-        self.map.map[self.x+4][self.y] = False
+        if self.rotation == 1 or self.rotation == 3:
+            self.map.map[self.x+4][self.y] = False
+        elif self.rotation == 2 or self.rotation == 4:
+            for y in range(0, 4):
+                self.map.map[self.x+1][self.y-y] = False
 
     def update(self):
         if False:
@@ -48,8 +56,13 @@ class IBlock(Block):
             for x in range(0, 19):
                 if x < 4 and y < 4:
                     if self.form[y][x]:
-                        self.map.map[x+self.x][y+self.y] = True
-                        self.map.map[x+self.x][y+self.y-1] = False
+                        if self.rotation == 1 or self.rotation == 3:
+                            self.map.map[x+self.x][y+self.y-1] = False
+                            self.map.map[x+self.x][y+self.y] = True
+                        elif self.rotation == 2 or self.rotation == 4:
+                            self.map.map[x+self.x][y+self.y-4] = False
+                            for p in range(0, 4):
+                                self.map.map[self.x][self.y-p] = True
 
 
 

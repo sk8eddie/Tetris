@@ -18,7 +18,7 @@ class Eventhandler(object):
                 elif event.key == K_RIGHT:
                     block.move_right()
                 elif event.key == K_UP:
-                    pass
+                    block.rotate(clockwise=False)
                 elif event.key == K_ESCAPE:
                     quit()
                     sys.exit()
