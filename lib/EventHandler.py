@@ -18,7 +18,12 @@ class Eventhandler(object):
                 elif event.key == K_RIGHT:
                     block.move_right()
                 elif event.key == K_UP:
-                    block.rotate(clockwise=False)
+                    block.rotate(clockwise=False, remove=True)
+                elif event.key == K_DOWN:
+                    if block.rate == 10:
+                        block.super_drop(10000)
+                    else:
+                        block.super_drop(10)
                 elif event.key == K_ESCAPE:
                     quit()
                     sys.exit()

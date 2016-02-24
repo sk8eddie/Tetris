@@ -20,9 +20,10 @@ class Main(object):
         while True:
             self.update()
             self.draw()
-            self.clock.tick(4)
+            self.clock.tick(self.block.rate)
             if CollisionHandler.is_colliding(block=self.block, map=self.map):
                 self.block.spawn_block()
+            self.block.super_drop(10)
 
     def update(self):
         Eventhandler.handle_events(block=self.block)

@@ -16,7 +16,9 @@ class Map(object):
             self.map.append(cell_dump)
 
     def row_is_full(self):
-        pass
+        for x in range(0, 20):
+            for y in range(0, 32):
+                return all(self.map[x][y]) # Change to check where block landed TODO
 
     def is_cell_block_true(self, ):
         pass
