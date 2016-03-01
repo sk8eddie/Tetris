@@ -31,5 +31,5 @@ class Eventhandler(object):
     # @classmethod
     # def is_action(cls):
     #     for event in pygame.event.get():
-    #         return event.type == KEYDOWN and event.key ==K_LEFT or event.key == K_RIGHT or event.key == K_UP
+    #         return event.type == KEYDOWN and event.key == K_LEFT or event.key == K_RIGHT or event.key == K_UP
 

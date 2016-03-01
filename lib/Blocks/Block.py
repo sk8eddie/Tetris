@@ -9,7 +9,6 @@ class Block(object):
     def __init__(self):
         self.form = [[0 for x in range(20)]for x in range(32)]
         self.image = pygame.image.load(os.path.join('lib' + os.sep + 'media', 'Block.png'))
-        self.map = map
         self.rotation = 1
         self.rate = 10
 
@@ -49,7 +48,6 @@ class Block(object):
             self.rotation += 1
             if self.rotation > 4:
                 self.rotation = 1
-
 
     def super_drop(self, rate):
         self.rate = rate
