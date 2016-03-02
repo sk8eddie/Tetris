@@ -11,6 +11,8 @@ class Block(object):
         self.image = pygame.image.load(os.path.join('lib' + os.sep + 'media', 'Block.png'))
         self.rotation = 1
         self.rate = 10
+        self.x = 9
+        self.y = 0
 
     def update(self):
         pass
@@ -28,7 +30,7 @@ class Block(object):
                 for j in range(0, 4):
                     temp_list1[i][j] = self.form[j][i]
                     if remove:
-                        self.map.map[i+self.x][self.y-j] = False
+                        self.map.level[i+self.x][self.y-j] = False
 
             for e in range(0, 4):
                 temp_list2[e] = temp_list1[3-e]
@@ -51,3 +53,11 @@ class Block(object):
 
     def super_drop(self, rate):
         self.rate = rate
+
+    def draw(self):
+    for y in range(0, 4):
+        for x in range(0, 4):
+            if self.form[y][x]:
+                self.map.level[self.x+x][self.y-1] = False
+
+                self.map.level[self.x+x][self.y+y] = True
