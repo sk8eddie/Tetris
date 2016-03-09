@@ -4,7 +4,7 @@ import sys
 import Events
 
 
-class Eventhandler(object):
+class EventHandler(object):
 
     @classmethod
     def handle_events(cls, block):
@@ -27,9 +27,4 @@ class Eventhandler(object):
                 elif event.key == K_ESCAPE:
                     quit()
                     sys.exit()
-
-    # @classmethod
-    # def is_action(cls):
-    #     for event in pygame.event.get():
-    #         return event.type == KEYDOWN and event.key == K_LEFT or event.key == K_RIGHT or event.key == K_UP
 

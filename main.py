@@ -26,7 +26,7 @@ class Main(object):
             self.block.super_drop(10)
 
     def update(self):
-        Eventhandler.handle_events(block=self.block)
+        EventHandler.handle_events(block=self.block)
         if self.block.y < 31:
             self.block.update()
 

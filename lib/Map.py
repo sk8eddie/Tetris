@@ -9,7 +9,7 @@ class Map(object):
     def __init__(self):
         self.level = []
         self.image = pygame.image.load(os.path.join('lib\media', 'Block.png'))
-        for i in range(0, 25, 1):
+        for i in range(0, 20, 1):
             cell_dump = []
             for e in range(0, 37, 1):
                 cell_dump.append(False)
