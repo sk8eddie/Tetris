@@ -55,8 +55,10 @@ class IBlock(Block):
             for why in range(start, end):
                 self.map.level[self.x-1][self.y+why] = False
 
-    def move_left(self):            # Your logic is flawed :(   # TODO Bug when rotation is 2/4 :(
+    def move_left(self):            # Flawless n_n
         move = True
+        if self.x == -19:
+            self.x = 1
         for y in range(0, 4):
             for x in range(0, 4):
                 if self.form[y][x]:
@@ -68,18 +70,14 @@ class IBlock(Block):
                             move = False
         if move:
             self.x -= 1
-            start = 0
-            end = 4
+            start = 1
+            end = 5
             if self.rotation == 1 or self.rotation == 3:
                 start = 1
                 end = 2
             for why in range(start, end):
                 for eks in range(0, 5):
                     self.map.level[self.x+eks][self.y+(why-1)] = False
-
-    def update(self):
-        self.y += 1
-        self.draw()
 
     def is_block_underneath(self, map):
         if self.rotation == 1 or self.rotation == 3:
@@ -90,9 +88,5 @@ class IBlock(Block):
         elif self.rotation == 2 or self.rotation == 4:
             return map.level[self.x][self.y+4]
 
-    def is_colliding_with_bottom(self):
-        if self.rotation == 1 or self.rotation == 3:
-                return self.y > 30
-        elif self.rotation == 2 or self.rotation == 4:
-            return self.y+4 > 31
+
 

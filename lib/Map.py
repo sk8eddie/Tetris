@@ -15,16 +15,22 @@ class Map(object):
                 cell_dump.append(False)
             self.level.append(cell_dump)
 
-    def row_is_full(self, block):
-        for x in range(20, 0, -1):
-            for y in range(block.y, block.y-4, -1):
-                if all(self.level[x][y]):
-                    self.delete_row(block=block)
+    def row_is_full(self, block):           # TODO
+        y = 0
+        x = 0
+        while y < 31:
+            while x < 19:
+                if self.level[x][y]:
+                    x += 1
+                    if x == 19:
+                        print("Full")
+                        self.delete_row(y=y)
+                else:
+                    y += 1
 
-    def delete_row(self, block):  # TODO
-        for x in range(20, 0, -1):
-            for y in range(block.y, block.y-4, -1):
-                self.level[x][y] = False
+    def delete_row(self, y):        # Works ~ish
+        for x in range(0, 20, 1):
+            self.level[x][y] = False
 
     def is_cell_block_true(self, ):
         pass

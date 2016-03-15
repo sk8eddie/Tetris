@@ -27,6 +27,7 @@ class Main(object):
 
     def update(self):
         EventHandler.handle_events(block=self.block)
+        self.map.row_is_full(block=self.block)
         if self.block.y < 31:
             self.block.update()
 
