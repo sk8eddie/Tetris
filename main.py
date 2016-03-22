@@ -23,11 +23,11 @@ class Main(object):
             self.clock.tick(self.block.rate)
             if CollisionHandler.is_colliding(block=self.block, map=self.map):
                 self.block.spawn_block()
+                self.map.full_row(block=self.block)
             self.block.super_drop(10)
 
     def update(self):
         EventHandler.handle_events(block=self.block)
-        self.map.row_is_full(block=self.block)
         if self.block.y < 31:
             self.block.update()
 

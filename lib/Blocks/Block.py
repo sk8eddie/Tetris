@@ -14,7 +14,7 @@ class Block(object):
         self.x = 9
         self.y = 0
 
-    def rotate(self, clockwise, remove):        # TODO Fix rotation margin
+    def rotate(self, clockwise, remove):
         loop_counter = 1
         if self.can_rotate():
             if clockwise:
